@@ -21,7 +21,7 @@ OBJS = $(SRCS:.cc=.o)
 OBJECTS = $(patsubst %.o,$(OBJ_DIR)/%.o,$(OBJS))
 DEPS = $(OBJECTS:.o=.d)
 
-all: main
+all: avere
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cc
 	$(CC) $(CXXFLAGS) -c $< -o $@ -MD $(LDFLAGS)

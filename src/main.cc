@@ -6,7 +6,8 @@ int main(int argc, char **argv) {
     auto& configuration = Configuration::GetInstance();
     configuration.Parse(argc, argv);
 
-    auto i_beacon = iBeacon(configuration);
+    auto beacon = iBeacon(configuration);
+    beacon.StartAdvertising();
 
     return 0;
 }

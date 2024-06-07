@@ -23,7 +23,7 @@ void Configuration::Parse(int argc, char** argv) {
     }
 
     try {
-        advertising_interval_ = std::stoi(FindArgument("-i"));
+        advertising_interval_ = std::stoi(FindArgument("-i")) * 60 * 100;
     } catch (...) {
         advertising_interval_ = 5 * 60 * 100;
     }
@@ -48,5 +48,5 @@ const std::string& Configuration::FindArgument(std::string option) {
     if (argument_iterator != this->tokens_.end() && ++argument_iterator != this->tokens_.end())
         return *argument_iterator;
     
-    throw CommandLineParsingException(std::string("No argument for ") + option);
+    throw ConfigurationError(std::string("No argument for ") + option);
 }

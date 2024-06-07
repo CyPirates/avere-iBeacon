@@ -13,8 +13,11 @@
 #include <bluetooth/hci_lib.h>
 #include <cstring>
 #include <cstdlib>
-#include <stdexcept>
+#include <iostream>
+#include <thread>
+#include <chrono>
 #include "configuration.h"
+#include "error.h"
 
 class iBeacon {
 public:
@@ -27,9 +30,10 @@ private:
     void SetAdvertisingParameters();
     void SetAdvertisingData();
 
-    void StopAdvertising();
+    bool StopAdvertising();
 
     int bluetooth_socket_{-1};
+    le_set_advertising_data_cp advertising_data_{};
     uint uuid_[0x10] = { 0xE2, 0xC5, 0x6D, 0xB5, 0xDF, 0xFB, 0x48, 0xD2, 0xB0, 0x60, 0xD0, 0xF5, 0xA7, 0x10, 0x96, 0xE0 };
     int tx_power_{0xc5};
     int advertising_interval_{5 * 60 * 100};

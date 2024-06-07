@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <vector>
 #include <stdexcept>
+#include "error.h"
 
 class Configuration {
 public:
@@ -36,14 +37,6 @@ private:
     std::string uuid_{};
     int tx_power_{0xc5};
     int advertising_interval_{5 * 60 * 100};
-
-    /**
-     * Command line argument exception when parsing
-     */
-    class CommandLineParsingException: public std::runtime_error {
-        public:
-            explicit CommandLineParsingException(const std::string& message) : std::runtime_error(message) {};
-    };
 };
 
 #endif // AVERE_IBEACON_CONFIGURATION_H
