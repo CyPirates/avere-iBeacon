@@ -1,2 +1,2 @@
 # avere-iBeacon
-iBeacon for avere
+iBeacon Service for avere powered by Raspberry Pi 5
