@@ -1,11 +1,5 @@
 #include "configuration.h"
 
-Configuration::Configuration() {
-    uuid_ = std::string("");
-    tx_power_ = 0xc5;
-    advertising_interval_ = 5 * 60 * 100;
-}
-
 Configuration& Configuration::GetInstance() {
     static Configuration instance;
     return instance;

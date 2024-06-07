@@ -1,8 +1,12 @@
 #include <iostream>
-#include "input_parser.h"
+#include "configuration.h"
+#include "i_beacon.h"
 
 int main(int argc, char **argv) {
-    std::cout << "Hello World\n";
-    auto a = InputParser(argc, argv);
+    auto& configuration = Configuration::GetInstance();
+    configuration.Parse(argc, argv);
+
+    auto i_beacon = iBeacon(configuration);
+
     return 0;
 }
